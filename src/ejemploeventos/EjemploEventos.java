@@ -5,6 +5,8 @@
  */
 package ejemploeventos;
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 
 /**
@@ -20,6 +22,14 @@ public class EjemploEventos {
         // TODO code application logic here
         JFrame frm = new JFrame("Ejemplo 1");
         frm.setSize(800,600);
+        
+        frm.addWindowListener(new WindowAdapter(){
+                @Override
+                public void windowClosing(WindowEvent e){
+                        System.exit(0);
+                }
+        });
+        
         frm.setVisible(true);
     }
     
