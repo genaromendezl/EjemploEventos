@@ -5,9 +5,12 @@
  */
 package ejemploeventos;
 
+import java.awt.FlowLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -20,17 +23,31 @@ public class EjemploEventos {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        JFrame frm = new JFrame("Ejemplo 1");
-        frm.setSize(800,600);
         
-        frm.addWindowListener(new WindowAdapter(){
-                @Override
-                public void windowClosing(WindowEvent e){
-                        System.exit(0);
+        SwingUtilities.invokeLater(new Runnable() {
+                public void run() {
+                     JFrame frm = new JFrame("Ejemplo 1");
+                    
+                     frm.setLayout(new FlowLayout());
+                     frm.setSize(800,600);
+                     
+                     PanelDibujo pnl = new PanelDibujo();                     
+                     pnl.addMouseListener(pnl);
+                     
+                     frm.add(pnl);
+                     
+                     JLabel lbl = new JLabel();
+                     frm.add(lbl);
+                     
+                     frm.addWindowListener(new WindowAdapter(){
+                             @Override
+                             public void windowClosing(WindowEvent e){
+                                     System.exit(0);
+                             }
+                     });
+                     frm.setVisible(true);
                 }
-        });
-        
-        frm.setVisible(true);
+        });       
     }
     
 }
