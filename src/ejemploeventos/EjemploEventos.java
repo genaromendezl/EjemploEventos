@@ -5,6 +5,7 @@
  */
 package ejemploeventos;
 
+import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -28,16 +29,17 @@ public class EjemploEventos {
                 public void run() {
                      JFrame frm = new JFrame("Ejemplo 1");
                     
-                     frm.setLayout(new FlowLayout());
+                     frm.setLayout(new BorderLayout());
                      frm.setSize(800,600);
                      
-                     PanelDibujo pnl = new PanelDibujo();                     
+                     PanelDibujo pnl = new PanelDibujo(frm);                     
                      pnl.addMouseListener(pnl);
+                     pnl.addMouseMotionListener(pnl);
                      
-                     frm.add(pnl);
+                     frm.add(pnl,BorderLayout.CENTER);
                      
                      JLabel lbl = new JLabel();
-                     frm.add(lbl);
+                     frm.add(lbl,BorderLayout.SOUTH);
                      
                      frm.addWindowListener(new WindowAdapter(){
                              @Override
