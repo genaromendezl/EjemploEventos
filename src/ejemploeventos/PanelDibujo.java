@@ -31,7 +31,7 @@ public class PanelDibujo extends JPanel implements MouseListener, MouseMotionLis
     public void mouseClicked(MouseEvent e) {
         Graphics2D g = (Graphics2D) this.getGraphics();
         
-        g.setColor(Color.red);
+        g.setColor(Color.blue);
         g.setStroke(new BasicStroke(5));
         g.drawLine(e.getX(),e.getY(),e.getX(),e.getY()); 
     }
